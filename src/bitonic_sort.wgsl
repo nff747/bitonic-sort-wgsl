@@ -4,4 +4,10 @@ struct Params { j: u32, k: u32 }
 
 @compute @workgroup_size(256)
 fn main(@builtin(global_invocation_id) global_id: vec3<u32>) {
+  let i = global_id.x;
+  let ixj = i ^ params.j;
+  if (ixj > i) {
+    if ((i & params.k) == 0 && data[i] > data[ixj]) { let tmp = data[i]; data[i] = data[ixj]; data[ixj] = tmp; }
+    if ((i & params.k) != 0 && data[i] < data[ixj]) { let tmp = data[i]; data[i] = data[ixj]; data[ixj] = tmp; }
+  }
 }
