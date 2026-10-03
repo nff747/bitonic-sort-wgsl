@@ -1,0 +1,1 @@
+export interface SorterOptions { maxWorkgroups?: number; }
