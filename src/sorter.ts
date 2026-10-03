@@ -1,1 +1,1 @@
-// check if length is power of 2
+// update TS to match 512
