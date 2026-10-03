@@ -1,1 +1,1 @@
-{"name":"bitonic-sort-wgsl", "version":"1.0.0", "type":"module", "keywords":["webgpu", "sort", "wgsl"]}
+{"name":"bitonic-sort-wgsl", "version":"1.0.0", "type":"module", "repository":"git+https://github.com/nff747/bitonic-sort-wgsl.git"}
