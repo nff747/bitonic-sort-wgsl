@@ -1,16 +1,1 @@
-import code from "./bitonic_sort.wgsl";
-import { SorterOptions } from "./types.js";
-export class BitonicSorter {
-  device: any;
-  pipeline: any;
-  options: SorterOptions;
-  constructor(device: any, opts: SorterOptions = {}) { 
-    this.device = device;
-    this.options = opts;
-    this.pipeline = device.createComputePipeline({ compute: { module: device.createShaderModule({code}), entryPoint: "main" } });
-  }
-  sort(buffer: any, length: number) { 
-    const paramsBuffer = this.device.createBuffer({size: 8, usage: 64 | 8});
-    const bindGroup = this.device.createBindGroup({ layout: this.pipeline.getBindGroupLayout(0), entries: [{binding:0, resource:{buffer}}, {binding:1, resource:{buffer: paramsBuffer}}] });
-  }
-}
+// ... add encoder loops for j and k ...
