@@ -10,6 +10,6 @@ export class BitonicSorter {
     this.pipeline = device.createComputePipeline({ compute: { module: device.createShaderModule({code}), entryPoint: "main" } });
   }
   sort(buffer: any, length: number) { 
-    // bitonic sort passes
+    const bindGroup = this.device.createBindGroup({ layout: this.pipeline.getBindGroupLayout(0), entries: [{binding:0, resource:{buffer}}] });
   }
 }
