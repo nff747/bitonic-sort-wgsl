@@ -2,9 +2,5 @@
 
 High-performance parallel bitonic sort in WebGPU WGSL.
 
-## Usage
-```ts
-import { BitonicSorter } from "bitonic-sort-wgsl";
-const sorter = new BitonicSorter(device);
-sorter.sort(myBuffer, 1024);
-```
+## Architecture
+Uses a compute shader with `workgroup_size(256)` and multi-pass dispatch.
