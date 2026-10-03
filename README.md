@@ -2,7 +2,9 @@
 
 High-performance parallel bitonic sort in WebGPU WGSL.
 
-## Installation
-```bash
-npm install bitonic-sort-wgsl
+## Usage
+```ts
+import { BitonicSorter } from "bitonic-sort-wgsl";
+const sorter = new BitonicSorter(device);
+sorter.sort(myBuffer, 1024);
 ```
