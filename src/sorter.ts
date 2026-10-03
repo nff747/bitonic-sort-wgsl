@@ -1,3 +1,8 @@
 export class BitonicSorter {
-  constructor(device) { this.device = device; }
+  device: any;
+  pipeline: any;
+  constructor(device: any) { 
+    this.device = device;
+    this.pipeline = null;
+  }
 }
