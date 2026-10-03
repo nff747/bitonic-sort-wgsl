@@ -6,5 +6,7 @@ export class BitonicSorter {
     this.device = device;
     this.pipeline = device.createComputePipeline({ compute: { module: device.createShaderModule({code}), entryPoint: "main" } });
   }
-  sort(buffer: any, length: number) {}
+  sort(buffer: any, length: number) { 
+    // bitonic sort passes
+  }
 }
