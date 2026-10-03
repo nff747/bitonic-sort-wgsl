@@ -1,1 +1,1 @@
-export interface SorterOptions { maxWorkgroups?: number; }
+// type for custom keys
