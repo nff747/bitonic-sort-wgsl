@@ -1,2 +1,1 @@
-export * from "./sorter.js";
-export * from "./types.js";
+export * from './sorter.js';
