@@ -27,6 +27,23 @@ export class BitonicSorter {
     });
   }
 
+  /**
+   * Generates a padded power-of-two Uint32Array copy with padding filled with sentinel values (0xFFFFFFFF).
+   */
+  public static padToPowerOfTwo(input: Uint32Array, sentinel: number = 0xFFFFFFFF): { padded: Uint32Array; originalLength: number } {
+    const origLen = input.length;
+    let nextPow2 = 1;
+    while (nextPow2 < origLen) {
+      nextPow2 <<= 1;
+    }
+    const padded = new Uint32Array(nextPow2);
+    padded.set(input);
+    if (nextPow2 > origLen) {
+      padded.fill(sentinel, origLen);
+    }
+    return { padded, originalLength: origLen };
+  }
+
   // Pure CPU bitonic sort simulation
   cpuSort(array: Uint32Array): Uint32Array {
     const n = array.length;
