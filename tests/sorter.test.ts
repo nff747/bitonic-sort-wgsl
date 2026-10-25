@@ -26,4 +26,18 @@ describe('BitonicSorter Engine', () => {
     const input = new Uint32Array([3, 1, 2]);
     expect(() => sorter.cpuSort(input)).toThrow(/power of 2/);
   });
+
+  it('pads arbitrary arrays up to power of 2 with sentinel values', () => {
+    const input = new Uint32Array([10, 5, 20]); // length 3 -> pads to 4
+    const res = BitonicSorter.padToPowerOfTwo(input, 999);
+    expect(res.originalLength).toBe(3);
+    expect(res.padded.length).toBe(4);
+    expect(res.padded[0]).toBe(10);
+    expect(res.padded[1]).toBe(5);
+    expect(res.padded[2]).toBe(20);
+    expect(res.padded[3]).toBe(999);
+
+    const sortedPadded = sorter.cpuSort(res.padded);
+    expect(Array.from(sortedPadded)).toEqual([5, 10, 20, 999]);
+  });
 });
